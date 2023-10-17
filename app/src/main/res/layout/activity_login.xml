@@ -42,7 +42,7 @@
             android:layout_gravity="left"/>
 
         <EditText
-            android:id="@+id/txtCorreoL"
+            android:id="@+id/loginEditTextEmail"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="5dp"
@@ -65,7 +65,7 @@
             android:layout_gravity="left" />
 
         <EditText
-            android:id="@+id/txtPswL"
+            android:id="@+id/loginEditTextPsw"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="25dp"
@@ -78,14 +78,14 @@
             android:textColor="@color/textColor" />
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/loginBtnLogin"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/button_1"
             android:text="@string/loginBtnText"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="16sp"
             android:fontFamily="@font/roboto_bold_condensed" />
 
         <LinearLayout
@@ -104,7 +104,7 @@
                 android:fontFamily="@font/roboto_bold_condensed"/>
 
             <Button
-                android:id="@+id/btnRegister"
+                android:id="@+id/loginBtnRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"

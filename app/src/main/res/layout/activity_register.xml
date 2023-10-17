@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    tools:context=".Register">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/action_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:src="@drawable/logo"
+            android:layout_marginBottom="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/RegisterHintName"
+            android:textSize="15sp"
+            android:textColor="@color/textColor"
+            android:fontFamily="@font/roboto_bold_condensed"
+            android:layout_gravity="left"/>
+
+        <EditText
+            android:id="@+id/registerEditTextName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/input_one"
+            android:inputType="text"
+            android:fontFamily="@font/saira_condensed_regular"
+            android:textSize="15sp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="@color/textColor"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/RegisterHintPhone"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/textColor"
+            android:fontFamily="@font/roboto_bold_condensed"
+            android:layout_gravity="left"/>
+
+        <EditText
+            android:id="@+id/registerEditTextPhone"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/input_one"
+            android:inputType="phone"
+            android:fontFamily="@font/saira_condensed_regular"
+            android:textSize="15sp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="@color/textColor"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/RegisterHintEmail"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/textColor"
+            android:fontFamily="@font/roboto_bold_condensed"
+            android:layout_gravity="left"/>
+
+        <EditText
+            android:id="@+id/registerEditTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/input_one"
+            android:inputType="textEmailAddress"
+            android:fontFamily="@font/saira_condensed_regular"
+            android:textSize="15sp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="@color/textColor"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/RegisterHintPsw"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/textColor"
+            android:fontFamily="@font/roboto_bold_condensed"
+            android:layout_gravity="left" />
+
+        <EditText
+            android:id="@+id/registerEditTextPsw"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/input_one"
+            android:inputType="textPassword"
+            android:fontFamily="@font/saira_condensed_regular"
+            android:textSize="15sp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="@color/textColor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/RegisterHintConfirmPsw"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/textColor"
+            android:fontFamily="@font/roboto_bold_condensed"
+            android:layout_gravity="left" />
+
+        <EditText
+            android:id="@+id/registerEditTextConfirmPsw"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/input_one"
+            android:inputType="textPassword"
+            android:fontFamily="@font/saira_condensed_regular"
+            android:textSize="15sp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="@color/textColor" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/button_1"
+            android:text="@string/RegisterBtnText"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:fontFamily="@font/roboto_bold_condensed" />
+
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

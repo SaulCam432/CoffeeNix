@@ -13,6 +13,10 @@
         android:theme="@style/Theme.CoffeeNix"
         tools:targetApi="31">
         <activity
+            android:name=".Register"
+            android:exported="false"
+            android:parentActivityName=".Login"/>
+        <activity
             android:name=".Login"
             android:exported="false" />
         <activity

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ActionBarTitle" parent="android:Widget.TextView">
+        <!-- The action bar title font -->
+        <item name="android:fontFamily">@font/roboto_bold_condensed</item>
+        <!-- Customizes the color of the action bar title-->
+        <item name="android:textColor">@color/textColor</item>
+        <!-- Customizes the size of the action bar title-->
+        <item name="android:textSize">20sp</item>
+
+    </style>
+</resources>

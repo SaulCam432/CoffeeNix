@@ -6,6 +6,16 @@
     <string name="loginBtnText">INICIAR SESIÓN</string>
     <string name="loginCreateAccount">REGISTRATE</string>
     <string name="loginTextCreateAccount">¿Aún no tienes cuenta?</string>
-    <string name="loginHintEmail">Correo electrónico</string>
-    <string name="loginHintPsw">Contraseña</string>
+    <string name="loginHintEmail">Correo electrónico:</string>
+    <string name="loginHintPsw">Contraseña:</string>
+
+    <!-- Register View -->
+    <string name="RegisterTitle">CREAR UNA CUENTA</string>
+    <string name="RegisterBtnText">REGISTRAR</string>
+    <string name="RegisterHintName">Nombre:</string>
+    <string name="RegisterHintPhone">Telefono:</string>
+    <string name="RegisterHintEmail">Correo electrónico:</string>
+    <string name="RegisterHintPsw">Contraseña:</string>
+    <string name="RegisterHintConfirmPsw">Confirmar contraseña:</string>
+
 </resources>
