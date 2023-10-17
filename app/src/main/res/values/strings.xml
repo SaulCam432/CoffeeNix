@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Coffee Nix</string>
-    <string name="loginTitle">INICIAR SESIÓN</string>
+
+    <!-- Login View -->
+    <string name="loginTitle">INICIO DE SESIÓN</string>
+    <string name="loginBtnText">INICIAR SESIÓN</string>
+    <string name="loginCreateAccount">REGISTRATE</string>
+    <string name="loginTextCreateAccount">¿Aún no tienes cuenta?</string>
+    <string name="loginHintEmail">Correo electrónico</string>
+    <string name="loginHintPsw">Contraseña</string>
 </resources>

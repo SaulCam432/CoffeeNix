@@ -34,7 +34,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Correo electronico"
+            android:text="@string/loginHintEmail"
             android:textSize="15sp"
             android:textColor="@color/textColor"
             android:fontFamily="@font/roboto_bold_condensed"
@@ -58,7 +58,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contraseña"
+            android:text="@string/loginHintPsw"
             android:textSize="15sp"
             android:textColor="@color/textColor"
             android:fontFamily="@font/roboto_bold_condensed"
@@ -78,11 +78,11 @@
             android:textColor="@color/textColor" />
 
         <Button
-            android:id="@+id/btnIniciarSesion"
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/button_1"
-            android:text="Iniciar Sesión"
+            android:text="@string/loginBtnText"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="20dp"
@@ -98,17 +98,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="¿Aún no tienes cuenta?"
+                android:text="@string/loginTextCreateAccount"
                 android:textColor="@color/textColor"
                 android:textSize="14sp"
                 android:fontFamily="@font/roboto_bold_condensed"/>
 
             <Button
-                android:id="@+id/btnCrearCuenta"
+                android:id="@+id/btnRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:text="REGISTRATE"
+                android:text="@string/loginCreateAccount"
                 android:textSize="14sp"
                 android:fontFamily="@font/roboto_bold_condensed"
                 android:textColor="@color/colorTwo" />
