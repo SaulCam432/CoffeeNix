@@ -45,7 +45,7 @@ class Register : AppCompatActivity() {
         val confirmPassword = binding.registerEditTextConfirmPsw.text.toString()
 
         if (isValidForm(name = name, phone = phone, email = email, password = password, confirmPassword = confirmPassword)) {
-            Toast.makeText(this, "El formulario es valido", Toast.LENGTH_SHORT).show()
+            messageSuccess("El formulario es valido")
         }
 
     }
@@ -63,43 +63,43 @@ class Register : AppCompatActivity() {
     ): Boolean {
 
         if (name.isBlank()) {
-            Toast.makeText(this, "Debes ingresar el nombre", Toast.LENGTH_SHORT).show()
+            messageError("Debes ingresar el nombre")
             return false
         }
 
         if (phone.isBlank()) {
-            Toast.makeText(this, "Debes ingresar el telefono", Toast.LENGTH_SHORT).show()
+            messageError("Debes ingresar el telefono")
             return false
         }
 
         if (email.isBlank()) {
-            Toast.makeText(this, "Debes ingresar el email", Toast.LENGTH_SHORT).show()
+            messageError("Debes ingresar el email")
             return false
         }
 
         if(password.length > 8){
-            Toast.makeText(this, "La contraseña es menor a 8 caracteres", Toast.LENGTH_SHORT).show()
+            messageError("La contraseña es menor a 8 caracteres")
             return false
         }
 
         if (password.isBlank()) {
-            Toast.makeText(this, "Debes ingresar el contraseña", Toast.LENGTH_SHORT).show()
+            messageError("Debes ingresar el contraseña")
             return false
         }
 
         if (confirmPassword.isBlank()) {
-            Toast.makeText(this, "Debes ingresar el la confirmacion de contraseña", Toast.LENGTH_SHORT).show()
+            messageError("Debes ingresar el la confirmacion de contraseña")
             return false
         }
 
 
         if (!email.isEmailValid()) {
-            Toast.makeText(this, "El email no es valido", Toast.LENGTH_SHORT).show()
+            messageError("El email no es valido")
             return false
         }
 
         if (password != confirmPassword) {
-            Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
+            messageError("Las contraseñas no coinciden")
             return false
         }
 
@@ -109,6 +109,14 @@ class Register : AppCompatActivity() {
     private fun goToLogin(){
         val i = Intent(this, Login::class.java)
         startActivity(i)
+    }
+
+    private fun messageSuccess(message: String){
+        Toast(this).showMessage(message, this, "success")
+    }
+
+    private fun messageError(message: String){
+        Toast(this).showMessage(message, this, "error")
     }
 
 

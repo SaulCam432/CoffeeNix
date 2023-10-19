@@ -29,7 +29,7 @@ class Login : AppCompatActivity() {
         val password = binding.loginEditTextPsw.text.toString()
 
         if(isValidForm(email = email, password = password)){
-            Toast.makeText(this, "El formulario es valido", Toast.LENGTH_SHORT).show()
+            messageSuccess("El formulario es valido")
         }
     }
 
@@ -42,22 +42,22 @@ class Login : AppCompatActivity() {
         password: String
     ): Boolean{
         if (email.isBlank()){
-            Toast.makeText(this, "Debes ingresar un correo", Toast.LENGTH_SHORT).show()
+            messageError("Debes ingresar un correo")
             return false
         }
 
         if (password.length < 8){
-            Toast.makeText(this, "Contraseña menor a 8 caracteres", Toast.LENGTH_SHORT).show()
+            messageError("Contraseña menor a 8 caracteres")
             return false
         }
 
         if (password.isBlank()){
-            Toast.makeText(this, "Debes ingresar una contraseña", Toast.LENGTH_SHORT).show()
+            messageError("Debes ingresar una contraseña")
             return false
         }
 
         if (!email.isEmailValid()){
-            Toast.makeText(this, "Debes ingresar un correo valido", Toast.LENGTH_SHORT).show()
+            messageError("Debes ingresar un correo valido")
             return false
         }
 
@@ -67,5 +67,13 @@ class Login : AppCompatActivity() {
     private fun goToRegisterActivity() {
         val i = Intent(this, Register::class.java)
         startActivity(i)
+    }
+
+    private fun messageSuccess(message: String){
+        Toast(this).showMessage(message, this, "success")
+    }
+
+    private fun messageError(message: String){
+        Toast(this).showMessage(message, this, "error")
     }
 }

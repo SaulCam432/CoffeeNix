@@ -13,8 +13,12 @@
     <color name="backgroundColor">#F4F4F4</color>
     <color name="backgroundBtnOne">#ff2730</color>
 
-    <color name="colorOne">#ff2730</color>
+    <color name="colorOne">#F65A2B</color>
     <color name="colorTwo">#EFA061</color>
     <color name="colorThree">#ff2730</color>
     <color name="colorFour">#ff2730</color>
+
+    <color name="success">#157F40</color>
+    <color name="info">#106BDA</color>
+    <color name="danger">#CE3426</color>
 </resources>
