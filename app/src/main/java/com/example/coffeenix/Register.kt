@@ -10,9 +10,17 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.example.coffeenix.databinding.ActivityRegisterBinding
+import com.example.coffeenix.models.ResponseHttp
+import com.example.coffeenix.models.User
+import com.example.coffeenix.providers.UsersProvider
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class Register : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
+    var usersProvider = UsersProvider()
+    var TAG = "RegisterActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -45,7 +53,27 @@ class Register : AppCompatActivity() {
         val confirmPassword = binding.registerEditTextConfirmPsw.text.toString()
 
         if (isValidForm(name = name, phone = phone, email = email, password = password, confirmPassword = confirmPassword)) {
-            messageSuccess("El formulario es valido")
+            var user = User (
+                name = name,
+                email = email,
+                phone = phone,
+                password = password
+            )
+            
+            usersProvider.register(user)?.enqueue(object : Callback<ResponseHttp> {
+                override fun onResponse(call: Call<ResponseHttp>, response: Response<ResponseHttp>) {
+                    messageSuccess(response.body()?.message.toString())
+                    goToLogin()
+                    Log.d(TAG, "Response ${response.body()?.message}")
+                    Log.d(TAG, "Body ${response.body()}")
+                }
+
+                override fun onFailure(call: Call<ResponseHttp>, t: Throwable) {
+                    Log.d(TAG, "Se produjo un error ${t.message}")
+                    messageError("Se produjo un error ${t.message}")
+                }
+            })
+        //messageSuccess("El formulario es valido")
         }
 
     }
