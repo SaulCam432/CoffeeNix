@@ -105,7 +105,7 @@ class Register : AppCompatActivity() {
             return false
         }
 
-        if(password.length > 8){
+        if(password.length < 8){
             messageError("La contraseña es menor a 8 caracteres")
             return false
         }
