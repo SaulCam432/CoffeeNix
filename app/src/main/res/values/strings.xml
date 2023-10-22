@@ -10,12 +10,15 @@
     <string name="loginHintPsw">Contraseña:</string>
 
     <!-- Register View -->
-    <string name="RegisterTitle">CREAR UNA CUENTA</string>
+    <string name="RegisterTitle">Crear una cuenta</string>
     <string name="RegisterBtnText">REGISTRAR</string>
     <string name="RegisterHintName">Nombre:</string>
     <string name="RegisterHintPhone">Telefono:</string>
     <string name="RegisterHintEmail">Correo electrónico:</string>
     <string name="RegisterHintPsw">Contraseña:</string>
     <string name="RegisterHintConfirmPsw">Confirmar contraseña:</string>
+
+    <!-- Select Roles View -->
+    <string name="SelectRolesTitle">Selección de Rol</string>
 
 </resources>

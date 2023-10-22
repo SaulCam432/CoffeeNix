@@ -9,10 +9,13 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
+import com.example.coffeenix.Cliente.home.ClientHomeActivity
 import com.example.coffeenix.databinding.ActivityRegisterBinding
 import com.example.coffeenix.models.ResponseHttp
 import com.example.coffeenix.models.User
 import com.example.coffeenix.providers.UsersProvider
+import com.example.coffeenix.utils.SharedPref
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,6 +24,7 @@ class Register : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     var usersProvider = UsersProvider()
     var TAG = "RegisterActivity"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -62,10 +66,17 @@ class Register : AppCompatActivity() {
             
             usersProvider.register(user)?.enqueue(object : Callback<ResponseHttp> {
                 override fun onResponse(call: Call<ResponseHttp>, response: Response<ResponseHttp>) {
-                    messageSuccess(response.body()?.message.toString())
-                    goToLogin()
                     Log.d(TAG, "Response ${response.body()?.message}")
                     Log.d(TAG, "Body ${response.body()}")
+
+                    if(response.body()?.isSuccess == true){
+                        messageSuccess(response.body()?.message.toString())
+                        saveUserInSession(response.body()?.data.toString())
+                        goToClientHome()
+                    }
+                    else{
+                        messageError("Error al crear usuario")
+                    }
                 }
 
                 override fun onFailure(call: Call<ResponseHttp>, t: Throwable) {
@@ -76,6 +87,11 @@ class Register : AppCompatActivity() {
         //messageSuccess("El formulario es valido")
         }
 
+    }
+
+    private fun goToClientHome(){
+        val i = Intent(this, ClientHomeActivity::class.java)
+        startActivity(i)
     }
 
     fun String.isEmailValid(): Boolean {
@@ -132,6 +148,14 @@ class Register : AppCompatActivity() {
         }
 
         return true
+    }
+
+    private fun saveUserInSession(data: String){
+        val sharedPref = SharedPref(this)
+        val gson = Gson()
+        val user = gson.fromJson(data, User::class.java)
+        sharedPref.save("user", user)
+
     }
 
     private fun goToLogin(){

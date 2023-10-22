@@ -1,14 +1,22 @@
 package com.example.coffeenix
 
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.widget.Toast
+import com.example.coffeenix.Cliente.home.ClientHomeActivity
+import com.example.coffeenix.admin.home.AdminHomeActivity
 import com.example.coffeenix.databinding.ActivityLoginBinding
+import com.example.coffeenix.delivery.home.DeliveryHomeActivity
 import com.example.coffeenix.models.ResponseHttp
+import com.example.coffeenix.models.User
 import com.example.coffeenix.providers.UsersProvider
+import com.example.coffeenix.utils.SharedPref
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,6 +31,8 @@ class Login : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        getUserFromSession()
+
         binding.loginBtnRegister.setOnClickListener{
             goToRegisterActivity()
         }
@@ -30,6 +40,18 @@ class Login : AppCompatActivity() {
         binding.loginBtnLogin.setOnClickListener {
             login()
         }
+    }
+
+    private fun goToClientHome(){
+        val i = Intent(this, ClientHomeActivity::class.java)
+        i.flags = FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK //eliminar istorial de pantallas
+        startActivity(i)
+    }
+
+    private fun goToSelectRol(){
+        val i = Intent(this, SelectRolesActivity::class.java)
+        i.flags = FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK //eliminar istorial de pantallas
+        startActivity(i)
     }
 
     private fun login(){
@@ -43,6 +65,8 @@ class Login : AppCompatActivity() {
                     Log.d(TAG, "response: ${response.body()?.message}")
                     if (response.body()?.isSuccess == true){
                         messageSuccess(response.body()?.message.toString())
+
+                        saveUserInSession(response.body()?.data.toString())
                     }else{
                         messageError("Los datos no son correctos")
                     }
@@ -53,6 +77,19 @@ class Login : AppCompatActivity() {
                     messageError("Se produjo un error ${t.message}")
                 }
             })
+        }
+    }
+
+    private fun saveUserInSession(data: String){
+        val sharedPref = SharedPref(this)
+        val gson = Gson()
+        val user = gson.fromJson(data, User::class.java)
+        sharedPref.save("user", user)
+
+        if (user.roles?.size!! > 1){ //EL USUARIO TIENE MAS ROLES
+            goToSelectRol()
+        }else{//EL USUARIO SOLO TIENE UN ROL (CLIENTE)
+            goToClientHome()
         }
     }
 
@@ -89,6 +126,19 @@ class Login : AppCompatActivity() {
 
     private fun goToRegisterActivity() {
         val i = Intent(this, Register::class.java)
+        i.flags = FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK //eliminar istorial de pantallas
+        startActivity(i)
+    }
+
+    private fun goToAdminHome() {
+        val i = Intent(this, AdminHomeActivity::class.java)
+        i.flags = FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK //eliminar istorial de pantallas
+        startActivity(i)
+    }
+
+    private fun goToDeliveryHome() {
+        val i = Intent(this, DeliveryHomeActivity::class.java)
+        i.flags = FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK //eliminar istorial de pantallas
         startActivity(i)
     }
 
@@ -98,5 +148,30 @@ class Login : AppCompatActivity() {
 
     private fun messageError(message: String){
         Toast(this).showMessage(message, this, "error")
+    }
+
+
+    private fun getUserFromSession(){
+        val sharedPref = SharedPref(this)
+        val gson = Gson()
+
+        // SI EL USUARiO EXISTE EN SESSION
+        if(!sharedPref.getData("user").isNullOrBlank()){
+            val user = gson.fromJson(sharedPref.getData("user"), User::class.java)
+
+            if(!sharedPref.getData("rol").isNullOrBlank()){
+                val rol = sharedPref.getData("rol")?.replace("\"", "")
+
+                if (rol == "ADMIN"){
+                    goToAdminHome()
+                }else if (rol == "CLIENTE"){
+                    goToClientHome()
+                } else if (rol == "REPARTIDOR"){
+                    goToDeliveryHome()
+                }
+            }else {
+                goToClientHome()
+            }
+        }
     }
 }
