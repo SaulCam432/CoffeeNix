@@ -10,13 +10,16 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="textColor">#393737</color>
-    <color name="backgroundColor">#F4F4F4</color>
+    <color name="textColorLight">#EDEDED</color>
+    <color name="backgroundColor">#FCFCFC</color>
+    <color name="backgroundColorGrey">#EDEDED</color>
     <color name="backgroundBtnOne">#ff2730</color>
 
-    <color name="colorOne">#F65A2B</color>
-    <color name="colorTwo">#EFA061</color>
-    <color name="colorThree">#ff2730</color>
-    <color name="colorFour">#ff2730</color>
+    <color name="colorOne">#ff4e50</color>
+    <color name="colorTwo">#fc913a</color>
+    <color name="colorThree">#f9d423</color>
+    <color name="colorFour">#ede574</color>
+    <color name="colorFive">#e1f5c4</color>
 
     <color name="success">#157F40</color>
     <color name="info">#106BDA</color>

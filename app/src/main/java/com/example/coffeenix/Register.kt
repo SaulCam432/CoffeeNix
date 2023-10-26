@@ -72,7 +72,7 @@ class Register : AppCompatActivity() {
                     if(response.body()?.isSuccess == true){
                         messageSuccess(response.body()?.message.toString())
                         saveUserInSession(response.body()?.data.toString())
-                        goToClientHome()
+                        goToSaveImage()
                     }
                     else{
                         messageError("Error al crear usuario")
@@ -91,6 +91,12 @@ class Register : AppCompatActivity() {
 
     private fun goToClientHome(){
         val i = Intent(this, ClientHomeActivity::class.java)
+        i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK //Eliminar historial de pantallas
+        startActivity(i)
+    }
+    private fun goToSaveImage(){
+        val i = Intent(this, SaveImageActivity::class.java)
+        i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK //Eliminar historial de pantallas
         startActivity(i)
     }
 

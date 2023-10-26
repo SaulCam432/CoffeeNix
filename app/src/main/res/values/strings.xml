@@ -21,4 +21,10 @@
     <!-- Select Roles View -->
     <string name="SelectRolesTitle">Selección de Rol</string>
 
+    <!-- Save Image View -->
+    <string name="SaveImageViewTitle">Agrega una imagen a tu perfil</string>
+    <string name="SaveImageViewBtnSave">GUARDAR</string>
+    <string name="SaveImageViewBtnClose">OMITIR</string>
+
+
 </resources>

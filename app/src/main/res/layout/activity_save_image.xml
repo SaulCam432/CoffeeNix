@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SaveImageActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundColor"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:background="@color/colorOne"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/SaveImageViewTitle"
+                android:textSize="30sp"
+                android:fontFamily="@font/roboto_bold_condensed"
+                android:textStyle="bold"
+                android:textColor="@color/textColorLight"
+                android:textAlignment="center"
+                android:gravity="center"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImageView"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="110dp"
+        android:src="@drawable/ic_person_24"
+        app:civ_border_width="6dp"
+        app:civ_border_color="@color/colorOne"
+        app:civ_circle_background_color="@color/backgroundColorGrey"
+        android:layout_gravity="center|top"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/saveImageBtnSave"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/button_1"
+            android:text="@string/SaveImageViewBtnSave"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:fontFamily="@font/roboto_bold_condensed"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/saveImageBtnClose"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/button_2"
+            android:text="@string/SaveImageViewBtnClose"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:textColor="@color/colorOne"
+            android:textSize="16sp"
+            android:fontFamily="@font/roboto_bold_condensed"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"/>
+
+
+
+    </LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
