@@ -1,20 +1,15 @@
-package com.example.coffeenix
+package com.example.coffeenix.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.coffeenix.R
 import com.example.coffeenix.adapters.roles.RolesAdapter
 import com.example.coffeenix.databinding.ActivitySelectRolesBinding
-import com.example.coffeenix.models.Rol
 import com.example.coffeenix.models.User
 import com.example.coffeenix.utils.SharedPref
 import com.google.gson.Gson
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class SelectRolesActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySelectRolesBinding

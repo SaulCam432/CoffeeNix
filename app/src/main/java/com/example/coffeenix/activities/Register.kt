@@ -1,19 +1,19 @@
-package com.example.coffeenix
+package com.example.coffeenix.activities
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.example.coffeenix.Cliente.home.ClientHomeActivity
+import com.example.coffeenix.R
 import com.example.coffeenix.databinding.ActivityRegisterBinding
 import com.example.coffeenix.models.ResponseHttp
 import com.example.coffeenix.models.User
 import com.example.coffeenix.providers.UsersProvider
+import com.example.coffeenix.utils.showMessage
 import com.example.coffeenix.utils.SharedPref
 import com.google.gson.Gson
 import retrofit2.Call

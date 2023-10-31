@@ -1,4 +1,4 @@
-package com.example.coffeenix
+package com.example.coffeenix.activities
 
 import android.app.Activity
 import android.content.Intent
@@ -13,6 +13,7 @@ import com.example.coffeenix.databinding.ActivitySaveImageBinding
 import com.example.coffeenix.models.ResponseHttp
 import com.example.coffeenix.models.User
 import com.example.coffeenix.providers.UsersProvider
+import com.example.coffeenix.utils.showMessage
 import com.example.coffeenix.utils.SharedPref
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.gson.Gson

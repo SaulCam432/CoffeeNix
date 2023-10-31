@@ -25,6 +25,14 @@
     <string name="SaveImageViewTitle">Agrega una imagen a tu perfil</string>
     <string name="SaveImageViewBtnSave">GUARDAR</string>
     <string name="SaveImageViewBtnClose">OMITIR</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="txtCloseSession">CERRAR SESIÓN</string>
+
+    <!-- Client Update View -->
+    <string name="clientUpdateBtn">ACTUALIZAR</string>
+
+    <!-- Client Profile Fragment -->
+    <string name="clientProfileFragmentBtn">EDITAR DATOS</string>
 
 
 </resources>

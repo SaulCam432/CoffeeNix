@@ -1,4 +1,4 @@
-package com.example.coffeenix
+package com.example.coffeenix.utils
 
 import android.app.Activity
 import android.view.Gravity
@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import com.example.coffeenix.R
 
 fun Toast.showMessage(message: String, activity: Activity, type: String) {
     //SE IDENTIFICA LA PANTALLA DEL MENSAJE

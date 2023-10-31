@@ -1,4 +1,4 @@
-package com.example.coffeenix
+package com.example.coffeenix.activities
 
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -15,12 +15,12 @@ import com.example.coffeenix.delivery.home.DeliveryHomeActivity
 import com.example.coffeenix.models.ResponseHttp
 import com.example.coffeenix.models.User
 import com.example.coffeenix.providers.UsersProvider
+import com.example.coffeenix.utils.showMessage
 import com.example.coffeenix.utils.SharedPref
 import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.math.log
 
 class Login : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -126,19 +126,19 @@ class Login : AppCompatActivity() {
 
     private fun goToRegisterActivity() {
         val i = Intent(this, Register::class.java)
-        i.flags = FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK //eliminar istorial de pantallas
+        i.flags = FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK //Eliminar historial de pantallas
         startActivity(i)
     }
 
     private fun goToAdminHome() {
         val i = Intent(this, AdminHomeActivity::class.java)
-        i.flags = FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK //eliminar istorial de pantallas
+        i.flags = FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK //Eliminar historial de pantallas
         startActivity(i)
     }
 
     private fun goToDeliveryHome() {
         val i = Intent(this, DeliveryHomeActivity::class.java)
-        i.flags = FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK //eliminar istorial de pantallas
+        i.flags = FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK //Eliminar historial de pantallas
         startActivity(i)
     }
 
@@ -164,12 +164,16 @@ class Login : AppCompatActivity() {
 
                 if (rol == "ADMIN"){
                     goToAdminHome()
-                }else if (rol == "CLIENTE"){
+                }
+                else if (rol == "CLIENTE"){
                     goToClientHome()
-                } else if (rol == "REPARTIDOR"){
+                }
+                else if (rol == "REPARTIDOR"){
                     goToDeliveryHome()
                 }
-            }else {
+            }
+            else {
+                Log.d("LoginActivity", "ROL NO EXISTE")
                 goToClientHome()
             }
         }

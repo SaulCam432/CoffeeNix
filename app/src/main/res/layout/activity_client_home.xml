@@ -7,26 +7,23 @@
     android:background="@color/backgroundColor"
     tools:context=".Cliente.home.ClientHomeActivity">
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp">
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/clientHomeCloseSession"
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationClient"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/button_1"
-            android:text="Cerrar sesión"
-            android:textAllCaps="false"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:fontFamily="@font/roboto_bold_condensed" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            app:menu="@menu/bottom_navigation_menu_client"
+            android:layout_gravity="bottom"
+            android:background="@color/backgroundColor"
+            app:itemIconTint="@color/black"
+            app:itemTextColor="@color/black"/>
 
+
+    </FrameLayout>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

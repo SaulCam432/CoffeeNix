@@ -7,13 +7,23 @@
     android:background="@color/backgroundColor"
     tools:context=".delivery.home.DeliveryHomeActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Delivery"
-        android:textSize="25sp"
-        android:fontFamily="@font/roboto_bold_condensed"
-        android:layout_gravity="center"
-        android:gravity="center"/>
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationDelivery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:menu="@menu/bottom_navigation_menu_delivery"
+            android:layout_gravity="bottom"
+            android:background="@color/backgroundColor"
+            app:itemIconTint="@color/black"
+            app:itemTextColor="@color/black"/>
+
+
+    </FrameLayout>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
