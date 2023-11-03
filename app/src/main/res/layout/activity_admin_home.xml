@@ -7,12 +7,295 @@
     android:background="@color/backgroundColor"
     tools:context=".admin.home.AdminHomeActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Administrador"
-        android:textSize="25sp"
-        android:fontFamily="@font/roboto_bold_condensed"
-        android:layout_gravity="center"/>
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/OptionsAdminOrders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="2dp"
+            android:background="@color/backgroundColor"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="@color/white"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/backgroundColor"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:id="@+id/cardViewOrdersBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="6dp">
+
+                    <ImageView
+                        android:id="@+id/cardViewOrdersImage"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:paddingStart="10dp"
+                        android:src="@drawable/ic_admin_orders"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_alignParentLeft="true"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="2dp"
+                        android:layout_toEndOf="@+id/imageLocationAddress"
+                        android:layout_toRightOf="@+id/imageLocationAddress">
+
+                        <!--Nombre de Usuario-->
+                        <TextView
+                            android:id="@+id/cardViewOrdersText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/adminHomeCardViewOrdersTitle"
+                            android:textSize="20sp"
+                            android:textColor="@color/textColor"
+                            android:fontFamily="@font/saira_condensed_regular"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/OptionsAdminProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="2dp"
+            android:background="@color/backgroundColor"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="@color/white"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/backgroundColor"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:id="@+id/cardViewProfileBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="6dp">
+
+                    <ImageView
+                        android:id="@+id/cardViewProfileImage"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:paddingStart="10dp"
+                        android:textAlignment="center"
+                        android:src="@drawable/ic_admin_profile"
+                        android:layout_gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="2dp"
+                        android:layout_toEndOf="@+id/imageLocationAddress"
+                        android:layout_toRightOf="@+id/imageLocationAddress">
+
+                        <!--Nombre de Usuario-->
+                        <TextView
+                            android:id="@+id/cardViewProfileText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/adminHomeCardViewProfileTitle"
+                            android:textSize="20sp"
+                            android:textColor="@color/textColor"
+                            android:fontFamily="@font/saira_condensed_regular"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/OptionsAdminCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="2dp"
+            android:background="@color/backgroundColor"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="@color/white"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/backgroundColor"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:id="@+id/cardViewCategoryBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="6dp">
+
+                    <ImageView
+                        android:id="@+id/cardViewCategoryImage"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:paddingStart="10dp"
+                        android:src="@drawable/ic_admin_category"
+                        android:layout_gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="2dp"
+                        android:layout_toEndOf="@+id/imageLocationAddress"
+                        android:layout_toRightOf="@+id/imageLocationAddress">
+
+                        <!--Nombre de Usuario-->
+                        <TextView
+                            android:id="@+id/cardViewCategoryText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/adminHomeCardViewCategoryTitle"
+                            android:textSize="20sp"
+                            android:textColor="@color/textColor"
+                            android:fontFamily="@font/saira_condensed_regular"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/OptionsAdminProducts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="2dp"
+            android:background="@color/backgroundColor"
+            app:cardUseCompatPadding="true"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="@color/white"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/backgroundColor"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:id="@+id/cardViewProductsBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="6dp">
+
+                    <ImageView
+                        android:id="@+id/cardViewProductsImage"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:paddingStart="10dp"
+                        android:src="@drawable/ic_admin_products"
+                        android:layout_gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="2dp"
+                        android:layout_toEndOf="@+id/imageLocationAddress"
+                        android:layout_toRightOf="@+id/imageLocationAddress">
+
+                        <!--Nombre de Usuario-->
+                        <TextView
+                            android:id="@+id/cardViewProductsText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/adminHomeCardViewProductsTitle"
+                            android:textSize="20sp"
+                            android:textColor="@color/textColor"
+                            android:fontFamily="@font/saira_condensed_regular"
+                            android:layout_marginLeft="10dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/AdminHomeReturn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/button_1"
+            android:text="Volver a Seleccionar rol"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:fontFamily="@font/roboto_bold_condensed"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"/>
+
+    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

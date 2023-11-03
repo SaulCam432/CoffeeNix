@@ -34,5 +34,35 @@
     <!-- Client Profile Fragment -->
     <string name="clientProfileFragmentBtn">EDITAR DATOS</string>
 
+    <!-- Admin Home-->
+    <string name="adminHomeToolbarTitle">¿Qué deseas hacer?</string>
+    <string name="adminHomeCardViewOrdersTitle">Ver pedidos</string>
+    <string name="adminHomeCardViewProfileTitle">Editar perfil</string>
+    <string name="adminHomeCardViewCategoryTitle">Agregar nueva categoria</string>
+    <string name="adminHomeCardViewProductsTitle">agragar nuevo producto</string>
+
+    <!-- Admin Create Category View-->
+    <string name="adminCategoryToolbarTitle">Crear nueva categoria</string>
+    <string name="adminCategoryBtnText">CREAR CATEGORIA</string>
+    <string name="adminCategoryTextImage">Agrega una imagen de la categoria</string>
+
+    <!-- Admin Create Products View-->
+    <string name="adminProductToolbarTitle">Crear nuevo producto</string>
+    <string name="adminProductBtnText">AGREGAR PRODUCTO</string>
+    <string name="adminProductsTextImage">Agrega una o mas iamgenes del producto</string>
+    <string name="adminProductsTextViewName">Nombre:</string>
+    <string name="adminProductsTextViewCategory">Categoria:</string>
+    <string name="adminProductsTextViewPrice">Precio:</string>
+    <string name="adminProductsTextViewDes">Descripción</string>
+
+    <!-- Admin Profile View-->
+    <string name="adminProfileToolbarTitle">Perfil</string>
+
+    <!-- Admin Edit Profile View-->
+    <string name="adminEditProfileToolbarTitle">Editar perfil</string>
+
+    <!-- Admin Orders View-->
+    <string name="adminOrdersToolbarTitle">Todos los pedidos</string>
+
 
 </resources>

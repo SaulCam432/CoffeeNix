@@ -26,7 +26,27 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ClientUpdateActivity"
+            android:name=".admin.home.adminOptions.profile.AdminProfileActivity"
+            android:exported="false"
+            android:parentActivityName=".admin.home.AdminHomeActivity"/>
+        <activity
+            android:name=".admin.home.adminOptions.orders.AdminOrdersActivity"
+            android:exported="false"
+            android:parentActivityName=".admin.home.AdminHomeActivity" />
+        <activity
+            android:name=".admin.home.adminOptions.profile.AdminEditProfileActivity"
+            android:exported="false"
+            android:parentActivityName=".admin.home.adminOptions.profile.AdminProfileActivity"/>
+        <activity
+            android:name=".admin.home.adminOptions.products.AdminCreateProductActivity"
+            android:exported="false"
+            android:parentActivityName=".admin.home.AdminHomeActivity" />
+        <activity
+            android:name=".admin.home.adminOptions.categories.AdminCreateCategoryActivity"
+            android:exported="false"
+            android:parentActivityName=".admin.home.AdminHomeActivity" />
+        <activity
+            android:name=".Cliente.update.ClientUpdateActivity"
             android:exported="false" />
         <activity
             android:name=".activities.SaveImageActivity"

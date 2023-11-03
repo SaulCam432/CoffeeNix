@@ -1,7 +1,6 @@
-package com.example.coffeenix
+package com.example.coffeenix.admin.home.adminOptions.profile
 
 import android.app.Activity
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,8 +8,8 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
-import com.example.coffeenix.Cliente.home.ClientHomeActivity
-import com.example.coffeenix.databinding.ActivityClientUpdateBinding
+import com.example.coffeenix.R
+import com.example.coffeenix.databinding.ActivityAdminEditProfileBinding
 import com.example.coffeenix.models.ResponseHttp
 import com.example.coffeenix.models.User
 import com.example.coffeenix.providers.UsersProvider
@@ -24,17 +23,16 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
 
-class ClientUpdateActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityClientUpdateBinding
-    val TAG = "ClientUpdateActivity"
+class AdminEditProfileActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityAdminEditProfileBinding
+    val TAG = "AdminProfile"
     private var imageFile: File? = null
-    var usersProvider: UsersProvider ?= null
+    var usersProvider: UsersProvider?= null
     var user: User? = null
     var sharedPref: SharedPref? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityClientUpdateBinding.inflate(layoutInflater)
+        binding = ActivityAdminEditProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         sharedPref = SharedPref(this)
@@ -42,18 +40,29 @@ class ClientUpdateActivity : AppCompatActivity() {
 
         usersProvider = UsersProvider(user?.sessionToken)
 
+        /*
+        * Implementacion de barra de herramientas
+        */
+        binding.toolbar.toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.textColor))
+        binding.toolbar.toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.black))
+        binding.toolbar.toolbar.setTitle(R.string.adminEditProfileToolbarTitle)
+        binding.toolbar.toolbar.setTitleTextAppearance(this, R.style.ActionBarTitle) //Cambiar tipo de letra y tamaño del titulo
+        setSupportActionBar(binding.toolbar.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true) //Boton pantalla anterior
 
-
-        binding.clientUpdateEditTextName.setText(user?.name)
-        binding.clientUpdateEditTextPhone.setText(user?.phone)
+        binding.adminUpdateEditTextName.setText(user?.name)
+        binding.adminUpdateEditTextPhone.setText(user?.phone)
 
         if (!user?.image.isNullOrBlank()) {
-            Picasso.get().load(user?.image).into(binding.clientUpdateImageView);
+            Picasso.get().load(user?.image).into(binding.adminUpdateImageView);
         }
 
-        binding.clientUpdateImageView.setOnClickListener { selectImage() }
+        binding.adminUpdateImageView.setOnClickListener { selectImage() }
 
-        binding.clientUpdateBtn.setOnClickListener { updateClientUser() }
+        binding.adminUpdateBtn.setOnClickListener {
+            updateAdminUser()
+        }
+
     }
 
     private fun isValidForm(
@@ -61,30 +70,27 @@ class ClientUpdateActivity : AppCompatActivity() {
         phone: String
     ): Boolean {
 
-            if (name.isBlank()) {
-                messageError("Debes ingresar el nombre")
-                return false
-            }
-
-            if (phone.isBlank()) {
-                messageError("Debes ingresar el telefono")
-                return false
-            }
-
-            return true
+        if (name.isBlank()) {
+            messageError("Debes ingresar el nombre")
+            return false
         }
 
+        if (phone.isBlank()) {
+            messageError("Debes ingresar el telefono")
+            return false
+        }
 
-    private fun updateClientUser() {
-        val name = binding.clientUpdateEditTextName.text.toString()
-        val phone = binding.clientUpdateEditTextPhone.text.toString()
+        return true
+    }
 
-
+    private fun updateAdminUser() {
+        val name = binding.adminUpdateEditTextName.text.toString()
+        val phone = binding.adminUpdateEditTextPhone.text.toString()
 
         if (isValidForm(name, phone)){
             user?.name = name
             user?.phone = phone
-            
+
             if (imageFile != null){
                 usersProvider?.update(imageFile!!, user!!)?.enqueue(object: Callback<ResponseHttp> {
                     override fun onResponse(call: Call<ResponseHttp>, response: Response<ResponseHttp>) {
@@ -135,7 +141,7 @@ class ClientUpdateActivity : AppCompatActivity() {
             if (resultCode == Activity.RESULT_OK) {
                 val fileUri = data?.data
                 imageFile = File(fileUri?.path) // EL ARCHIVO QUE VAMOS A GUARDAR COMO IMAGEN EN EL SERVIDOR
-                binding.clientUpdateImageView.setImageURI(fileUri)
+                binding.adminUpdateImageView.setImageURI(fileUri)
             }
             else if (resultCode == ImagePicker.RESULT_ERROR) {
                 Toast.makeText(this, ImagePicker.getError(data), Toast.LENGTH_LONG).show()
@@ -172,11 +178,6 @@ class ClientUpdateActivity : AppCompatActivity() {
 
     private fun messageError(message: String){
         Toast(this).showMessage(message, this, "error")
-    }
-
-    private fun goToClientHome(){
-        var i = Intent(this, ClientHomeActivity::class.java)
-        startActivity(i)
     }
 
     private fun saveUserInSession(data: String) {

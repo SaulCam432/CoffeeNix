@@ -6,8 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import com.example.coffeenix.ClientUpdateActivity
+import com.example.coffeenix.Cliente.update.ClientUpdateActivity
 import com.example.coffeenix.activities.Login
 import com.example.coffeenix.databinding.FragmentClientProfileBinding
 import com.example.coffeenix.models.User

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.client.ClientProfileFragment">
+    tools:context=".admin.home.adminOptions.profile.AdminProfileActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/action_bar" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,7 +16,7 @@
         android:orientation="vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profileImageView"
+            android:id="@+id/adminProfileImageView"
             android:layout_width="250dp"
             android:layout_height="250dp"
             android:src="@drawable/ic_person_24"
@@ -20,7 +24,7 @@
             app:civ_border_color="@color/colorOne"
             app:civ_circle_background_color="@color/backgroundColorGrey"
             android:layout_gravity="center"
-            android:layout_marginTop="60dp" />
+            android:layout_marginTop="70dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,7 +42,7 @@
                 />
 
             <TextView
-                android:id="@+id/ProfileTextViewName"
+                android:id="@+id/adminProfileTextViewName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nombre de usuario"
@@ -63,7 +67,7 @@
                 />
 
             <TextView
-                android:id="@+id/ProfileTextViewEmail"
+                android:id="@+id/adminProfileTextViewEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Email del usuario"
@@ -87,7 +91,7 @@
                 />
 
             <TextView
-                android:id="@+id/ProfileTextViewPhone"
+                android:id="@+id/adminProfileTextViewPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="+57 000000000"
@@ -108,7 +112,7 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/profileBtnEdit"
+            android:id="@+id/adminBtnEditProfile"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/button_1"
@@ -122,7 +126,7 @@
             android:layout_marginRight="20dp"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/profileBtnCloseSession"
+            android:id="@+id/adminBtnCloseSession"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/button_2"
@@ -140,4 +144,4 @@
 
     </LinearLayout>
 
-</FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
