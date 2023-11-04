@@ -1,60 +1,108 @@
 package com.example.coffeenix.fragments.client
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.coffeenix.Cliente.update.ClientUpdateActivity
 import com.example.coffeenix.R
+import com.example.coffeenix.activities.Login
+import com.example.coffeenix.adapters.categories.CategoriesAdapter
+import com.example.coffeenix.adapters.roles.RolesAdapter
+import com.example.coffeenix.databinding.FragmentClientCategoriesBinding
+import com.example.coffeenix.databinding.FragmentClientProfileBinding
+import com.example.coffeenix.models.Category
+import com.example.coffeenix.models.User
+import com.example.coffeenix.providers.CategoriesProvider
+import com.example.coffeenix.utils.SharedPref
+import com.google.gson.Gson
+import com.squareup.picasso.Picasso
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ClientCategoriesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ClientCategoriesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentClientCategoriesBinding? = null
+    private val binding get() = _binding!!
+    var sharedPref: SharedPref? = null
+    var adapter: CategoriesAdapter? = null
+    var categoriesProvider: CategoriesProvider? = null
+    var user: User? = null
+    var categories = ArrayList<Category>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_client_categories, container, false)
+        _binding = FragmentClientCategoriesBinding.inflate(inflater, container, false)
+        setHasOptionsMenu(true)
+
+        sharedPref = SharedPref(requireActivity())
+        getUserFromSession()
+        categoriesProvider = CategoriesProvider(user?.sessionToken!!)
+
+        var toolbar = binding.toolbar.toolbar
+
+        toolbar.setTitleTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+        toolbar.setTitle(R.string.clientCategoriesToolbarTitle)
+        toolbar.setTitleTextAppearance(requireContext(), R.style.ActionBarTitle) //Cambiar tipo de letra y tamaño del titulo
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+
+        getCategories()
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ClientCategoriesFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ClientCategoriesFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun getCategories() {
+        categoriesProvider?.getAll()?.enqueue(object: Callback<ArrayList<Category>> {
+            override fun onResponse(call: Call<ArrayList<Category>>, response: Response<ArrayList<Category>>
+            ) {
+
+                if (response.body() != null) {
+
+                    categories = response.body()!!
+                    binding.recyclerViewCategories.layoutManager = LinearLayoutManager(requireContext())
+                    binding.recyclerViewCategories.setHasFixedSize(true)
+                    adapter = CategoriesAdapter(requireActivity(), categories)
+                    binding.recyclerViewCategories.adapter = adapter
                 }
+
             }
+
+            override fun onFailure(call: Call<ArrayList<Category>>, t: Throwable) {
+                Toast.makeText(requireContext(), "Error: ${t.message}", Toast.LENGTH_LONG).show()
+            }
+
+        })
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_shopping_bag, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.item_shopping_bag) {
+
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun getUserFromSession(){
+        val gson = Gson()
+        if (!sharedPref?.getData("user").isNullOrBlank()){
+            user = gson.fromJson(sharedPref?.getData("user"), User::class.java)
+        }
+    }
+
 }

@@ -64,5 +64,8 @@
     <!-- Admin Orders View-->
     <string name="adminOrdersToolbarTitle">Todos los pedidos</string>
 
+    <!-- Client Categories View-->
+    <string name="clientCategoriesToolbarTitle">Categorias</string>
+
 
 </resources>

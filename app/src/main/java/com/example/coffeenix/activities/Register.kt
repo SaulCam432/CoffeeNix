@@ -33,7 +33,6 @@ class Register : AppCompatActivity() {
         /*
         * Implementacion de barra de herramientas
         */
-        binding.toolbar.toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.textColor))
         binding.toolbar.toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.black))
         binding.toolbar.toolbar.setTitle(R.string.RegisterTitle)
         binding.toolbar.toolbar.setTitleTextAppearance(this, R.style.ActionBarTitle) //Cambiar tipo de letra y tamaño del titulo
