@@ -8,10 +8,10 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.widget.Toast
-import com.example.coffeenix.Cliente.home.ClientHomeActivity
-import com.example.coffeenix.admin.home.AdminHomeActivity
+import com.example.coffeenix.activities.Cliente.home.ClientHomeActivity
+import com.example.coffeenix.activities.admin.home.AdminHomeActivity
 import com.example.coffeenix.databinding.ActivityLoginBinding
-import com.example.coffeenix.delivery.home.DeliveryHomeActivity
+import com.example.coffeenix.activities.delivery.home.DeliveryHomeActivity
 import com.example.coffeenix.models.ResponseHttp
 import com.example.coffeenix.models.User
 import com.example.coffeenix.providers.UsersProvider

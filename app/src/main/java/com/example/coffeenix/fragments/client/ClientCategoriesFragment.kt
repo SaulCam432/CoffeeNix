@@ -14,7 +14,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.coffeenix.Cliente.update.ClientUpdateActivity
+import com.example.coffeenix.activities.Cliente.update.ClientUpdateActivity
 import com.example.coffeenix.R
 import com.example.coffeenix.activities.Login
 import com.example.coffeenix.adapters.categories.CategoriesAdapter

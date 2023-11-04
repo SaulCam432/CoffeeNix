@@ -1,4 +1,4 @@
-package com.example.coffeenix.admin.home.adminOptions.orders
+package com.example.coffeenix.activities.admin.home.adminOptions.orders
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,13 +1,13 @@
-package com.example.coffeenix.admin.home
+package com.example.coffeenix.activities.admin.home
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.coffeenix.activities.SelectRolesActivity
-import com.example.coffeenix.admin.home.adminOptions.categories.AdminCreateCategoryActivity
-import com.example.coffeenix.admin.home.adminOptions.products.AdminCreateProductActivity
-import com.example.coffeenix.admin.home.adminOptions.orders.AdminOrdersActivity
-import com.example.coffeenix.admin.home.adminOptions.profile.AdminProfileActivity
+import com.example.coffeenix.activities.admin.home.adminOptions.categories.AdminCreateCategoryActivity
+import com.example.coffeenix.activities.admin.home.adminOptions.products.AdminCreateProductActivity
+import com.example.coffeenix.activities.admin.home.adminOptions.orders.AdminOrdersActivity
+import com.example.coffeenix.activities.admin.home.adminOptions.profile.AdminProfileActivity
 import com.example.coffeenix.databinding.ActivityAdminHomeBinding
 
 class AdminHomeActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.example.coffeenix.admin.home.adminOptions.categories
+package com.example.coffeenix.activities.admin.home.adminOptions.categories
 
 import android.app.Activity
 import android.content.Intent
@@ -10,7 +10,7 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import com.example.coffeenix.R
-import com.example.coffeenix.admin.home.AdminHomeActivity
+import com.example.coffeenix.activities.admin.home.AdminHomeActivity
 import com.example.coffeenix.databinding.ActivityAdminCreateCategoryBinding
 import com.example.coffeenix.models.Category
 import com.example.coffeenix.models.ResponseHttp

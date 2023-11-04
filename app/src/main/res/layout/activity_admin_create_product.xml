@@ -13,7 +13,7 @@
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context=".admin.home.adminOptions.products.AdminCreateProductActivity">
+            tools:context=".activities.admin.home.adminOptions.products.AdminCreateProductActivity">
 
             <include
                 android:id="@+id/toolbar"

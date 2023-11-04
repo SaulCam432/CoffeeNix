@@ -1,16 +1,10 @@
 package com.example.coffeenix.adapters.categories
 
 import android.app.Activity
-import android.content.Intent
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.example.coffeenix.Cliente.home.ClientHomeActivity
-import com.example.coffeenix.admin.home.AdminHomeActivity
 import com.example.coffeenix.databinding.CardviewCategoriesBinding
-import com.example.coffeenix.databinding.CardviewRolesBinding
-import com.example.coffeenix.delivery.home.DeliveryHomeActivity
 import com.example.coffeenix.models.Category
-import com.example.coffeenix.models.Rol
 import com.example.coffeenix.utils.SharedPref
 import com.squareup.picasso.Picasso
 

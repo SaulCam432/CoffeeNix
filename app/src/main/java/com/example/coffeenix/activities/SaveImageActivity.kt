@@ -8,7 +8,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import com.example.coffeenix.Cliente.home.ClientHomeActivity
+import com.example.coffeenix.activities.Cliente.home.ClientHomeActivity
 import com.example.coffeenix.databinding.ActivitySaveImageBinding
 import com.example.coffeenix.models.ResponseHttp
 import com.example.coffeenix.models.User

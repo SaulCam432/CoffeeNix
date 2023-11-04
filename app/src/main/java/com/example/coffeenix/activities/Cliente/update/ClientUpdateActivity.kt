@@ -1,4 +1,4 @@
-package com.example.coffeenix.Cliente.update
+package com.example.coffeenix.activities.Cliente.update
 
 import android.app.Activity
 import android.content.Intent
@@ -8,7 +8,9 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import com.example.coffeenix.Cliente.home.ClientHomeActivity
+import androidx.core.content.ContextCompat
+import com.example.coffeenix.R
+import com.example.coffeenix.activities.Cliente.home.ClientHomeActivity
 import com.example.coffeenix.databinding.ActivityClientUpdateBinding
 import com.example.coffeenix.models.ResponseHttp
 import com.example.coffeenix.models.User
@@ -35,6 +37,16 @@ class ClientUpdateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityClientUpdateBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        /*
+        * Implementacion de barra de herramientas
+        */
+        binding.toolbar.toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.textColor))
+        binding.toolbar.toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.black))
+        binding.toolbar.toolbar.setTitle(R.string.adminEditProfileToolbarTitle)
+        binding.toolbar.toolbar.setTitleTextAppearance(this, R.style.ActionBarTitle) //Cambiar tipo de letra y tamaño del titulo
+        setSupportActionBar(binding.toolbar.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true) //Boton pantalla anterior
 
         sharedPref = SharedPref(this)
         getUserFromSession()

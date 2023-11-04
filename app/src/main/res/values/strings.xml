@@ -66,6 +66,8 @@
 
     <!-- Client Categories View-->
     <string name="clientCategoriesToolbarTitle">Categorias</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

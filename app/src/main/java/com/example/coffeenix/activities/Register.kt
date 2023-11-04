@@ -7,7 +7,7 @@ import android.text.TextUtils
 import android.util.Log
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import com.example.coffeenix.Cliente.home.ClientHomeActivity
+import com.example.coffeenix.activities.Cliente.home.ClientHomeActivity
 import com.example.coffeenix.R
 import com.example.coffeenix.databinding.ActivityRegisterBinding
 import com.example.coffeenix.models.ResponseHttp

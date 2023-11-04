@@ -26,42 +26,43 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".admin.home.adminOptions.profile.AdminProfileActivity"
+            android:name=".activities.admin.home.adminOptions.profile.AdminProfileActivity"
             android:exported="false"
-            android:parentActivityName=".admin.home.AdminHomeActivity"/>
+            android:parentActivityName=".activities.admin.home.AdminHomeActivity"/>
         <activity
-            android:name=".admin.home.adminOptions.orders.AdminOrdersActivity"
+            android:name=".activities.admin.home.adminOptions.orders.AdminOrdersActivity"
             android:exported="false"
-            android:parentActivityName=".admin.home.AdminHomeActivity" />
+            android:parentActivityName=".activities.admin.home.AdminHomeActivity" />
         <activity
-            android:name=".admin.home.adminOptions.profile.AdminEditProfileActivity"
+            android:name=".activities.admin.home.adminOptions.profile.AdminEditProfileActivity"
             android:exported="false"
-            android:parentActivityName=".admin.home.adminOptions.profile.AdminProfileActivity"/>
+            android:parentActivityName=".activities.admin.home.adminOptions.profile.AdminProfileActivity"/>
         <activity
-            android:name=".admin.home.adminOptions.products.AdminCreateProductActivity"
+            android:name=".activities.admin.home.adminOptions.products.AdminCreateProductActivity"
             android:exported="false"
-            android:parentActivityName=".admin.home.AdminHomeActivity" />
+            android:parentActivityName=".activities.admin.home.AdminHomeActivity" />
         <activity
-            android:name=".admin.home.adminOptions.categories.AdminCreateCategoryActivity"
+            android:name=".activities.admin.home.adminOptions.categories.AdminCreateCategoryActivity"
             android:exported="false"
-            android:parentActivityName=".admin.home.AdminHomeActivity" />
+            android:parentActivityName=".activities.admin.home.AdminHomeActivity" />
         <activity
-            android:name=".Cliente.update.ClientUpdateActivity"
-            android:exported="false" />
+            android:name=".activities.Cliente.update.ClientUpdateActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.Cliente.home.ClientHomeActivity"/>
         <activity
             android:name=".activities.SaveImageActivity"
             android:exported="false" />
         <activity
-            android:name=".delivery.home.DeliveryHomeActivity"
+            android:name=".activities.delivery.home.DeliveryHomeActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.home.AdminHomeActivity"
+            android:name=".activities.admin.home.AdminHomeActivity"
             android:exported="false" />
         <activity
             android:name=".activities.SelectRolesActivity"
             android:exported="false" />
         <activity
-            android:name=".Cliente.home.ClientHomeActivity"
+            android:name=".activities.Cliente.home.ClientHomeActivity"
             android:exported="false" />
         <activity
             android:name=".activities.Register"

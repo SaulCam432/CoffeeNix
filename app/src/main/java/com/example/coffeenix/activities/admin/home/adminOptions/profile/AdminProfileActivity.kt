@@ -1,4 +1,4 @@
-package com.example.coffeenix.admin.home.adminOptions.profile
+package com.example.coffeenix.activities.admin.home.adminOptions.profile
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
