@@ -1,6 +1,7 @@
 package com.example.coffeenix.api
 
 import com.example.coffeenix.routes.CategoriesRoutes
+import com.example.coffeenix.routes.ProductsRoutes
 import com.example.coffeenix.routes.UsersRoutes
 
 class ApiRoutes {
@@ -16,5 +17,9 @@ class ApiRoutes {
 
     fun getCategoriesRoutes(token: String): CategoriesRoutes{
         return retrofit.getClientWithToken(API_URL, token).create(CategoriesRoutes::class.java)
+    }
+
+    fun getProductsRoutes(token: String): ProductsRoutes{
+        return retrofit.getClientWithToken(API_URL, token).create(ProductsRoutes::class.java)
     }
 }

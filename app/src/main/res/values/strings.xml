@@ -49,7 +49,7 @@
     <!-- Admin Create Products View-->
     <string name="adminProductToolbarTitle">Crear nuevo producto</string>
     <string name="adminProductBtnText">AGREGAR PRODUCTO</string>
-    <string name="adminProductsTextImage">Agrega una o mas iamgenes del producto</string>
+    <string name="adminProductsTextImage">Agrega una o mas imagenes del producto</string>
     <string name="adminProductsTextViewName">Nombre:</string>
     <string name="adminProductsTextViewCategory">Categoria:</string>
     <string name="adminProductsTextViewPrice">Precio:</string>
