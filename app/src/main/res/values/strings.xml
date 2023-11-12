@@ -69,5 +69,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- Client Products View-->
+    <string name="clientProductToolbarTitle">Productos</string>
+
+    <!-- Client Products Detail View-->
+    <string name="clientProductDetailBtn">AGREGAR PRODUCTO</string>
+
 
 </resources>

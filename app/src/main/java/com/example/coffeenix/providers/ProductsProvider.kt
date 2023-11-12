@@ -33,4 +33,8 @@ class ProductsProvider(val token: String) {
 
         return productsRoutes?.create(images, requestBody, token)
     }
+
+    fun getByCategory(idCategory: String): Call<ArrayList<Product>>? {
+        return productsRoutes?.getByCategory(idCategory, token)
+    }
 }

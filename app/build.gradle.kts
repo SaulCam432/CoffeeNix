@@ -61,4 +61,7 @@ dependencies {
     //Circle Image View
     implementation ("de.hdodenhof:circleimageview:3.1.0")
     implementation ("com.github.dhaval2404:imagepicker:2.1")
+
+    //Image Slider
+    implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
 }

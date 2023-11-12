@@ -35,6 +35,7 @@ class ClientCategoriesFragment : Fragment() {
 
     private var _binding: FragmentClientCategoriesBinding? = null
     private val binding get() = _binding!!
+
     var sharedPref: SharedPref? = null
     var adapter: CategoriesAdapter? = null
     var categoriesProvider: CategoriesProvider? = null
@@ -65,8 +66,7 @@ class ClientCategoriesFragment : Fragment() {
 
     private fun getCategories() {
         categoriesProvider?.getAll()?.enqueue(object: Callback<ArrayList<Category>> {
-            override fun onResponse(call: Call<ArrayList<Category>>, response: Response<ArrayList<Category>>
-            ) {
+            override fun onResponse(call: Call<ArrayList<Category>>, response: Response<ArrayList<Category>>) {
 
                 if (response.body() != null) {
 

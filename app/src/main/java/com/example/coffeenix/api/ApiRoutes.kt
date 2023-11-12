@@ -5,7 +5,7 @@ import com.example.coffeenix.routes.ProductsRoutes
 import com.example.coffeenix.routes.UsersRoutes
 
 class ApiRoutes {
-    val API_URL = "http://192.168.1.183:3000/api/"
+    val API_URL = "http://192.168.1.66:3000/api/"
     val retrofit = RetrofitClient()
     fun getUsersRoutes(): UsersRoutes{
         return retrofit.getClient(API_URL).create(UsersRoutes::class.java)
