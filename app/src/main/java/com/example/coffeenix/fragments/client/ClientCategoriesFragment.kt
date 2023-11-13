@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.coffeenix.activities.Cliente.update.ClientUpdateActivity
 import com.example.coffeenix.R
+import com.example.coffeenix.activities.Cliente.shoppingBag.ClientShoppingBagActivity
 import com.example.coffeenix.activities.Login
 import com.example.coffeenix.adapters.categories.CategoriesAdapter
 import com.example.coffeenix.adapters.roles.RolesAdapter
@@ -86,6 +87,11 @@ class ClientCategoriesFragment : Fragment() {
         })
     }
 
+    private fun goToShoppingBag(){
+        val i = Intent(requireContext(), ClientShoppingBagActivity::class.java)
+        startActivity(i)
+    }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_shopping_bag, menu)
         super.onCreateOptionsMenu(menu, inflater)
@@ -93,7 +99,7 @@ class ClientCategoriesFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.item_shopping_bag) {
-
+            goToShoppingBag()
         }
         return super.onOptionsItemSelected(item)
     }

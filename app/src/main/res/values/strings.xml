@@ -75,5 +75,9 @@
     <!-- Client Products Detail View-->
     <string name="clientProductDetailBtn">AGREGAR PRODUCTO</string>
 
+    <!-- Client Shopping Bag View-->
+    <string name="clientShoppingBagBtn">CONTINUAR</string>
+    <string name="clientShoppingBagTitle">Bolsa de compra</string>
+
 
 </resources>

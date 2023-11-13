@@ -26,6 +26,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.Cliente.address.ClientAddressListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.Cliente.shoppingBag.ClientShoppingBagActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.Cliente.home.ClientHomeActivity" />
+        <activity
             android:name=".activities.Cliente.products.details.ClientProductDetailActivity"
             android:exported="false" />
         <activity

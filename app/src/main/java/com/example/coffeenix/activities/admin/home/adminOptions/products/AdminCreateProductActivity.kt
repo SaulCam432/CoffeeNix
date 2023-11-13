@@ -73,7 +73,7 @@ class AdminCreateProductActivity : AppCompatActivity() {
         binding.adminImageViewImage2.setOnClickListener { selectImage(102) }
         binding.adminImageViewImage3.setOnClickListener { selectImage(103) }
 
-        binding.adminProductAddBtn.setOnClickListener { createProduct() }
+        binding.adminProductAddBtn.setOnClickListener { createProduct()}
     }
 
     private fun createProduct(){

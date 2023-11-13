@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nombre del producto"
-            android:textSize="18sp"
+            android:textSize="23dp"
             android:textColor="@color/textColor"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
@@ -28,11 +28,12 @@
         <com.denzcoskun.imageslider.ImageSlider
             android:id="@+id/imageProductSlider"
             android:layout_width="wrap_content"
-            android:layout_height="220dp"
+            android:layout_height="250dp"
             app:iss_auto_cycle="true"
-            android:layout_marginTop="10dp"
-            app:iss_period="1000"
-            app:iss_delay="1000"/>
+            app:iss_no_dots="true"
+            android:layout_marginTop="15dp"
+            app:iss_period="2000"
+            app:iss_delay="2000"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -69,7 +70,7 @@
         android:layout_marginBottom="90dp">
 
         <ImageView
-            android:id="@+id/imageview_add"
+            android:id="@+id/imageviewProductRemove"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/ic_btn_minus"/>
@@ -86,7 +87,7 @@
             android:layout_marginRight="15dp" />
 
         <ImageView
-            android:id="@+id/imageview_remove"
+            android:id="@+id/imageviewProductAdd"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/ic_btn_plus"/>
@@ -107,7 +108,7 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/adminBtnEditProfile"
+        android:id="@+id/clientProductDetailAddBag"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/button_1"
