@@ -26,8 +26,17 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".activities.Cliente.address.ClientAddressListActivity"
-            android:exported="false" />
+            android:name=".activities.Cliente.address.map.ClientAddressMapActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.Cliente.address.create.ClientAddressCreateActivity"/>
+        <activity
+            android:name=".activities.Cliente.address.create.ClientAddressCreateActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.Cliente.address.list.ClientAddressListActivity" />
+        <activity
+            android:name=".activities.Cliente.address.list.ClientAddressListActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.Cliente.shoppingBag.ClientShoppingBagActivity" />
         <activity
             android:name=".activities.Cliente.shoppingBag.ClientShoppingBagActivity"
             android:exported="false"
@@ -94,6 +103,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAG-wT3JGTWksAvcpkAAUKct9jZADqmROk" />
     </application>
 
 </manifest>

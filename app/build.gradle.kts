@@ -64,4 +64,11 @@ dependencies {
 
     //Image Slider
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
+
+    //Google Maps
+    implementation ("com.google.maps.android:maps-ktx:3.2.0")
+    implementation ("com.google.maps.android:maps-utils-ktx:3.2.0")
+    implementation ("com.google.android.gms:play-services-maps:17.0.1")
+    implementation ("com.google.android.gms:play-services-location:18.0.0")
+    implementation ("com.google.maps.android:android-maps-utils:2.2.3")
 }

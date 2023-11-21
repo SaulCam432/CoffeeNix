@@ -3,13 +3,11 @@ package com.example.coffeenix.activities.Cliente.shoppingBag
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coffeenix.R
-import com.example.coffeenix.activities.Cliente.address.ClientAddressListActivity
-import com.example.coffeenix.adapters.categories.CategoriesAdapter
+import com.example.coffeenix.activities.Cliente.address.list.ClientAddressListActivity
 import com.example.coffeenix.adapters.shoppingBag.ShoppingBagAdapter
 import com.example.coffeenix.databinding.ActivityClientShoppingBagBinding
 import com.example.coffeenix.models.Product
@@ -67,7 +65,7 @@ class ClientShoppingBagActivity : AppCompatActivity() {
     }
 
     fun setTotal(total: Double) {
-        binding.textviewTotal.text = "${total}$"
+        binding.textviewTotal.text = "$ ${total}"
     }
 
 

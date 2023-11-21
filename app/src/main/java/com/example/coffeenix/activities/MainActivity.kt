@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.WindowManager
+import android.widget.Toast
 import com.example.coffeenix.R
 
 class MainActivity : AppCompatActivity() {

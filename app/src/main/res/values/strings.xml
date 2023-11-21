@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Coffee Nix</string>
+    <string name="google_map_api_key">AIzaSyAG-wT3JGTWksAvcpkAAUKct9jZADqmROk</string>
 
     <!-- Login View -->
     <string name="loginTitle">INICIO DE SESIÓN</string>
@@ -78,6 +79,19 @@
     <!-- Client Shopping Bag View-->
     <string name="clientShoppingBagBtn">CONTINUAR</string>
     <string name="clientShoppingBagTitle">Bolsa de compra</string>
+
+    <!-- Client List Address View-->
+    <string name="clientAddressListBtn">CONTINUAR</string>
+    <string name="clientAddressListToolbar">Direcciones</string>
+    <string name="clientaddressListTitle">Selecciona una dirección para continuar:</string>
+
+
+    <!-- Client List Address View-->
+    <string name="clientAddressCreateBtn">GUARDAR CAMBIOS</string>
+    <string name="clientAddressCreateToolbar">Nueva dirección</string>
+    <string name="clientAddressCreateTextName">Dirección</string>
+    <string name="clientAddressCreateTextLoc">Municipio</string>
+    <string name="clientAddressCreateTextRef">Punto de referencia</string>
 
 
 </resources>
