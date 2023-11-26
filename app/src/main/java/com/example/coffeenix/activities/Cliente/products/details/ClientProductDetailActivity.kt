@@ -63,7 +63,7 @@ class ClientProductDetailActivity : AppCompatActivity() {
         val index = getIndexOf(product?.id!!) //INDICE DEL PRODUCTO SI EXISTE EN SHARED PREF
 
         if (index == -1) { //NO HAY PRODUCTO EN SHARED PREF
-            if (product?.quantity == 0){
+            if (product?.quantity == null){
                 product?.quantity = 1
             }
             selectedProduct.add(product!!)
