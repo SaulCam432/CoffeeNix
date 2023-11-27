@@ -43,7 +43,7 @@
         android:layout_gravity="bottom">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/adminProductAddBtn"
+        android:id="@+id/clientAddressSaveBtn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/button_1"
@@ -61,7 +61,7 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_address_create"
+        android:id="@+id/fabAddressCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_add_24"
