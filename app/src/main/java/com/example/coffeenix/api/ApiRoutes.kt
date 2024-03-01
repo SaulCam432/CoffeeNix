@@ -2,8 +2,10 @@ package com.example.coffeenix.api
 
 import com.example.coffeenix.routes.AddressRoutes
 import com.example.coffeenix.routes.CategoriesRoutes
+import com.example.coffeenix.routes.OrdersRoutes
 import com.example.coffeenix.routes.ProductsRoutes
 import com.example.coffeenix.routes.UsersRoutes
+import retrofit2.create
 
 class ApiRoutes {
     val API_URL = "http://192.168.1.183:3000/api/"
@@ -26,5 +28,9 @@ class ApiRoutes {
 
     fun getAddressRoutes(token: String): AddressRoutes {
         return retrofit.getClientWithToken(API_URL, token).create(AddressRoutes::class.java)
+    }
+
+    fun getOrdersRoutes(token: String): OrdersRoutes {
+        return retrofit.getClientWithToken(API_URL, token).create(OrdersRoutes::class.java)
     }
 }

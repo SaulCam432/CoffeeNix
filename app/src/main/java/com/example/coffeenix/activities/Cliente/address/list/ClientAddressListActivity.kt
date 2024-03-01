@@ -64,6 +64,7 @@ class ClientAddressListActivity : AppCompatActivity() {
         binding.clientAddressSaveBtn.setOnClickListener { getAddressFromSession() }
     }
 
+
     private fun getAddress(){
         addressProvider?.getAddressByUser(user?.id!!)?.enqueue(object : Callback<ArrayList<Address>> {
             override fun onResponse(call: Call<ArrayList<Address>>, response: Response<ArrayList<Address>>) {
