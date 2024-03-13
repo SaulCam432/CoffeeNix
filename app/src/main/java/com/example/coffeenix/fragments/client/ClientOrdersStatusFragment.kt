@@ -1,60 +1,95 @@
 package com.example.coffeenix.fragments.client
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.coffeenix.R
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.coffeenix.adapters.clientOrders.OrdersAdapter
+import com.example.coffeenix.databinding.FragmentClientOrdersStatusBinding
+import com.example.coffeenix.models.Order
+import com.example.coffeenix.models.User
+import com.example.coffeenix.providers.OrdersProvider
+import com.example.coffeenix.utils.SharedPref
+import com.example.coffeenix.utils.showMessage
+import com.google.gson.Gson
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ClientOrdersStatusFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ClientOrdersStatusFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentClientOrdersStatusBinding? = null
+    private val binding get()= _binding!!
+
+    var ordersProvider: OrdersProvider? = null
+
+    var sharedPref: SharedPref? = null
+    var user: User? = null
+    var order = ArrayList<Order>()
+    var adapter : OrdersAdapter? = null
+
+    var status = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        _binding = FragmentClientOrdersStatusBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_client_orders_status, container, false)
+
+        sharedPref = SharedPref(requireActivity())
+        getUserFromSession()
+
+        ordersProvider = OrdersProvider(user?.sessionToken!!)
+
+        binding.recyclerViewOrdersList.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerViewOrdersList.setHasFixedSize(true)
+
+        getOrders()
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ClientOrdersStatusFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ClientOrdersStatusFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun getOrders(){
+        status = arguments?.getString("status")!!
+
+        ordersProvider?.getOrdersByStatus(status)?.enqueue(object : Callback<ArrayList<Order>> {
+            override fun onResponse(call: Call<ArrayList<Order>>, response: Response<ArrayList<Order>>) {
+
+                if (response.body() != null){
+
+                    order = response.body()!!
+
+                    adapter = OrdersAdapter(requireActivity(), order)
+                    binding.recyclerViewOrdersList.adapter = adapter
+
                 }
             }
+
+            override fun onFailure(call: Call<ArrayList<Order>>, t: Throwable) {
+                messageError("Error ${t.message}")
+            }
+
+        })
+    }
+
+    private fun getUserFromSession(){
+        val gson = Gson()
+        if(!sharedPref?.getData("user").isNullOrBlank()){
+            user = gson.fromJson(sharedPref?.getData("user"), User::class.java)
+        }
+    }
+
+    private fun messageSuccess(message: String) {
+        Toast(requireContext()).showMessage(message, requireActivity(), "success")
+    }
+
+    private fun messageError(message: String){
+        Toast(requireContext()).showMessage(message, requireActivity(), "error")
     }
 }
+

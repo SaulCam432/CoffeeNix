@@ -93,5 +93,9 @@
     <string name="clientAddressCreateTextLoc">Municipio</string>
     <string name="clientAddressCreateTextRef">Punto de referencia</string>
 
+    <!-- Client Orders Status -->
+    <string name="ClientOrderStatusDate">Fecha del pedido: </string>
+    <string name="ClientOrderStatusAddress">Entrega en: </string>
+    <string name="ClientOrderStatusPay">Total: $</string>
 
 </resources>

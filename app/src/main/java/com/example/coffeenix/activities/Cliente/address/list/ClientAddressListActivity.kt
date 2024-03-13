@@ -84,8 +84,6 @@ class ClientAddressListActivity : AppCompatActivity() {
                     binding.recyclerViewAddressList.setHasFixedSize(true)
                     adapter = AddressAdapter(this@ClientAddressListActivity, address)
                     binding.recyclerViewAddressList.adapter = adapter
-
-                    messageSuccess(user?.id.toString())
                 }
             }
 
