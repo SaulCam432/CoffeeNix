@@ -95,6 +95,7 @@ class AdminCreateProductActivity : AppCompatActivity() {
             files.add(imageFile2!!)
             files.add(imageFile3!!)
 
+
             productsProvider?.create(files, product)?.enqueue(object: Callback<ResponseHttp> {
                 override fun onResponse(call: Call<ResponseHttp>, response: Response<ResponseHttp>) {
 
@@ -102,6 +103,7 @@ class AdminCreateProductActivity : AppCompatActivity() {
                     Log.d(TAG, "Body: ${response.body()}")
 
                     messageSuccess(response.body()?.message.toString())
+
 
                     if (response.body()?.isSuccess == true) {
                         goToAdminHome()
@@ -183,25 +185,28 @@ class AdminCreateProductActivity : AppCompatActivity() {
 
             val fileUri = data?.data
 
-            if(requestCode == 101){
+            if (requestCode == 101) {
                 imageFile1 = File(fileUri?.path) // EL ARCHIVO QUE VAMOS A GUARDAR COMO IMAGEN EN EL SERVIDOR
                 binding.adminImageViewImage1.setImageURI(fileUri)
             }
-            else if(requestCode == 102){
+            else if (requestCode == 102) {
                 imageFile2 = File(fileUri?.path) // EL ARCHIVO QUE VAMOS A GUARDAR COMO IMAGEN EN EL SERVIDOR
                 binding.adminImageViewImage2.setImageURI(fileUri)
             }
-            else if(requestCode == 103){
+
+            else if (requestCode == 103) {
                 imageFile3 = File(fileUri?.path) // EL ARCHIVO QUE VAMOS A GUARDAR COMO IMAGEN EN EL SERVIDOR
                 binding.adminImageViewImage3.setImageURI(fileUri)
             }
 
         } else if (resultCode == ImagePicker.RESULT_ERROR) {
-            messageError(ImagePicker.getError(data))
+            Toast.makeText(this, ImagePicker.getError(data), Toast.LENGTH_SHORT).show()
         } else {
-            messageError("Task Cancelled")
+            Toast.makeText(this, "Task Cancelled", Toast.LENGTH_SHORT).show()
         }
     }
+
+
 
     private fun selectImage(requestCode: Int) {
         ImagePicker.with(this)

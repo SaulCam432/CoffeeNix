@@ -26,6 +26,7 @@ import com.example.coffeenix.models.Category
 import com.example.coffeenix.models.User
 import com.example.coffeenix.providers.CategoriesProvider
 import com.example.coffeenix.utils.SharedPref
+import com.example.coffeenix.utils.showMessage
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import retrofit2.Call

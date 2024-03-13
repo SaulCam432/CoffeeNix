@@ -1,60 +1,71 @@
 package com.example.coffeenix.fragments.client
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.viewpager2.widget.ViewPager2
 import com.example.coffeenix.R
+import com.example.coffeenix.adapters.clientOrders.ClientOrdersTabsAdapter
+import com.example.coffeenix.databinding.FragmentClientOrdersBinding
+import com.example.coffeenix.databinding.FragmentClientProfileBinding
+import com.example.coffeenix.utils.SharedPref
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
+import com.squareup.picasso.Picasso
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ClientOrdersFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ClientOrdersFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding:FragmentClientOrdersBinding? = null
+    private val binding get() = _binding!!
+    var viewpager: ViewPager2? = null
+    var tabLayout:TabLayout? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_client_orders, container, false)
-    }
+        _binding = FragmentClientOrdersBinding.inflate(inflater, container, false)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ClientOrdersFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ClientOrdersFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        viewpager = binding.viewPagerClient
+        tabLayout = binding.tabLayoutClient
+
+        tabLayout?.setSelectedTabIndicatorColor(Color.BLACK)
+        tabLayout?.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.backgroundColor))
+        tabLayout?.tabTextColors = ContextCompat.getColorStateList(requireContext(), R.color.black)
+        tabLayout?.tabMode = TabLayout.MODE_SCROLLABLE
+        tabLayout?.isInlineLabel = true
+
+        var numberOfTabs = 4
+
+        val adapter = ClientOrdersTabsAdapter(requireActivity().supportFragmentManager, lifecycle, numberOfTabs )
+        viewpager?.adapter = adapter
+        viewpager?.isUserInputEnabled = true
+
+        TabLayoutMediator(tabLayout!!, viewpager!!) { tab, position ->
+
+            when(position){
+                0 -> {
+                    tab.text = "PAGADO"
+                }
+                1 -> {
+                    tab.text = "EN PROCESO"
+                }
+                2 -> {
+                    tab.text = "EN CAMINO"
+                }
+                3 -> {
+                    tab.text = "ENTREGADO"
                 }
             }
+        }.attach()
+
+
+
+
+
+        return binding.root
     }
 }

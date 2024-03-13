@@ -37,6 +37,7 @@ android {
     buildFeatures{
         viewBinding = true
     }
+    buildToolsVersion = "33.0.1"
 }
 
 dependencies {
@@ -71,4 +72,7 @@ dependencies {
     implementation ("com.google.android.gms:play-services-maps:17.0.1")
     implementation ("com.google.android.gms:play-services-location:18.0.0")
     implementation ("com.google.maps.android:android-maps-utils:2.2.3")
+
+    //View pager
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
 }

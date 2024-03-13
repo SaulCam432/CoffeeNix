@@ -14,14 +14,20 @@ import com.example.coffeenix.activities.Cliente.address.create.ClientAddressCrea
 import com.example.coffeenix.activities.Cliente.payments.form.ClientPaymentFormActivity
 import com.example.coffeenix.adapters.address.AddressAdapter
 import com.example.coffeenix.adapters.categories.CategoriesAdapter
+import com.example.coffeenix.adapters.shoppingBag.ShoppingBagAdapter
 import com.example.coffeenix.databinding.ActivityClientAddressListBinding
 import com.example.coffeenix.models.Address
 import com.example.coffeenix.models.Category
+import com.example.coffeenix.models.Order
+import com.example.coffeenix.models.Product
+import com.example.coffeenix.models.ResponseHttp
 import com.example.coffeenix.models.User
 import com.example.coffeenix.providers.AddressProvider
+import com.example.coffeenix.providers.OrdersProvider
 import com.example.coffeenix.utils.SharedPref
 import com.example.coffeenix.utils.showMessage
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,10 +35,12 @@ import retrofit2.Response
 class ClientAddressListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityClientAddressListBinding
     var addressProvider: AddressProvider? = null
+    var ordersProvider: OrdersProvider? = null
     var sharedPref: SharedPref? = null
     var user: User? = null
     var address = ArrayList<Address>()
     var adapter: AddressAdapter? = null
+    var selectedProduct = ArrayList<Product>()
 
     var gson = Gson()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +52,7 @@ class ClientAddressListActivity : AppCompatActivity() {
         getUserFromSession()
 
         addressProvider = AddressProvider(user?.sessionToken!!)
+        ordersProvider = OrdersProvider(user?.sessionToken!!)
 
         /*
         * Implementacion de barra de herramientas
@@ -87,10 +96,43 @@ class ClientAddressListActivity : AppCompatActivity() {
         })
     }
 
+    private fun createOrder(idAddress: String){
+        val order = Order(
+            products = selectedProduct,
+            idClient = user?.id!!,
+            idAddress = idAddress
+        )
+
+        ordersProvider?.create(order)?.enqueue(object : Callback<ResponseHttp> {
+            override fun onResponse(call: Call<ResponseHttp>, response: Response<ResponseHttp>) {
+                if (response.body() != null){
+                    messageSuccess("${response.body()?.message}")
+                }else{
+                    messageError("Ocurrio un error")
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseHttp>, t: Throwable) {
+                messageError("Error: ${t.message}")
+            }
+
+        })
+    }
+
+    private fun getProductFromSharedPref() {
+
+        if (!sharedPref?.getData("order").isNullOrBlank()) {
+            val type = object : TypeToken<ArrayList<Product>>() {}.type
+            selectedProduct = gson.fromJson(sharedPref?.getData("order"), type)
+        }
+    }
+
+
     private fun getAddressFromSession(){
         if (!sharedPref?.getData("address").isNullOrBlank()){
             val a = gson.fromJson(sharedPref?.getData("address"), Address::class.java)
-            goToPaymentForm()
+            createOrder(a.id!!)
+            //goToPaymentForm()
         }else{
             messageError("Selecciona un dirección para continuar")
         }
