@@ -1,4 +1,4 @@
-package com.example.coffeenix.fragments.client
+package com.example.coffeenix.fragments.client.orders
 
 import android.os.Bundle
 import android.util.Log
@@ -57,13 +57,12 @@ class ClientOrdersStatusFragment : Fragment() {
     private fun getOrders(){
         status = arguments?.getString("status")!!
 
-        ordersProvider?.getOrdersByStatus(status)?.enqueue(object : Callback<ArrayList<Order>> {
+        ordersProvider?.getOrderByClientAndStatus(user?.id!!, status)?.enqueue(object : Callback<ArrayList<Order>> {
             override fun onResponse(call: Call<ArrayList<Order>>, response: Response<ArrayList<Order>>) {
 
                 if (response.body() != null){
 
                     order = response.body()!!
-
                     adapter = OrdersAdapter(requireActivity(), order)
                     binding.recyclerViewOrdersList.adapter = adapter
 

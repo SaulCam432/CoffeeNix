@@ -64,13 +64,16 @@ class ClientAddressListActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true) //Boton pantalla anterior
 
         getAddress()
+        getProductFromSharedPref()
 
         binding.fabAddressCreate.setOnClickListener {
             val i = Intent(this, ClientAddressCreateActivity::class.java)
             startActivity(i)
         }
 
-        binding.clientAddressSaveBtn.setOnClickListener { getAddressFromSession() }
+        binding.clientAddressSaveBtn.setOnClickListener {
+            getAddressFromSession()
+        }
     }
 
 

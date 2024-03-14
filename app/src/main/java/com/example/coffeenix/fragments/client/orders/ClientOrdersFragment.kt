@@ -1,4 +1,4 @@
-package com.example.coffeenix.fragments.client
+package com.example.coffeenix.fragments.client.orders
 
 import android.graphics.Color
 import android.os.Bundle

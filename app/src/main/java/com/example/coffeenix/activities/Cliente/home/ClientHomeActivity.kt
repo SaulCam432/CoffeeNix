@@ -10,7 +10,7 @@ import com.example.coffeenix.activities.Login
 import com.example.coffeenix.R
 import com.example.coffeenix.databinding.ActivityClientHomeBinding
 import com.example.coffeenix.fragments.client.ClientCategoriesFragment
-import com.example.coffeenix.fragments.client.ClientOrdersFragment
+import com.example.coffeenix.fragments.client.orders.ClientOrdersFragment
 import com.example.coffeenix.fragments.client.ClientProfileFragment
 import com.example.coffeenix.models.User
 import com.example.coffeenix.utils.showMessage

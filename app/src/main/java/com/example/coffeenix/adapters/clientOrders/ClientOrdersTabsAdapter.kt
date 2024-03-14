@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.coffeenix.fragments.client.ClientOrdersStatusFragment
+import com.example.coffeenix.fragments.client.orders.ClientOrdersStatusFragment
 
 class ClientOrdersTabsAdapter (
     fragmentManager: FragmentManager,
