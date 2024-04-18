@@ -26,8 +26,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CoffeeNix"
-        android:usesCleartextTraffic="true"
-        >
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".activities.Cliente.orders.detail.ClientOrderDetailActivity"
+            android:exported="false" />
         <activity
             android:name=".activities.Cliente.payments.form.ClientPaymentFormActivity"
             android:exported="false" />

@@ -98,4 +98,13 @@
     <string name="ClientOrderStatusAddress">Entrega en: </string>
     <string name="ClientOrderStatusPay">Total: $</string>
 
+    <!-- Client Orders Detail Title -->
+    <string name="ClientOrderDetailTitle">Detalles del pedido</string>
+    <string name="ClientOrderDetailClient">Cliente: </string>
+    <string name="ClientOrderDetailAddress">Dirección de entrega: </string>
+    <string name="ClientOrderDetailDate">Tiempo transcurrido: </string>
+    <string name="ClientOrderDetailStatus">Estatus: </string>
+    <string name="ClientOrderDetailTotal">TOTAL</string>
+
+
 </resources>
